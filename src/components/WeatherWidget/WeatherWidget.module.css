@@ -1,0 +1,96 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.iconSm {
+  width: 14px;
+  height: 14px;
+  color: var(--text-secondary);
+}
+
+.mainInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconGroup {
+  display: flex;
+  align-items: center;
+}
+
+.iconLg {
+  width: 24px;
+  height: 24px;
+}
+
+.cloudIcon {
+  color: var(--text-secondary);
+  margin-left: -12px;
+}
+
+.tempGroup {
+  display: flex;
+  align-items: baseline;
+}
+
+.temperature {
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.unit {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+
+.condition {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.metrics {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.iconXs {
+  width: 12px;
+  height: 12px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.details p {
+  margin: 0;
+}

@@ -1,0 +1,100 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  padding: 1rem;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+  padding-right: 1rem;
+  overflow-y: auto;
+}
+
+.header {
+  min-width: 300px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header h1 {
+  font-size: 5rem;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.location-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-grid {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+}
+
+.devices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: min-content;
+  gap: 1rem;
+  flex: 1;
+}
+
+.volume-card {
+  grid-column: span 2;
+  padding: 1rem 1.5rem;
+}
+
+.side-panels {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.comfort-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.comfort-grid > :nth-child(4),
+.comfort-grid > :nth-child(5) {
+  grid-column: span 1.5;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    flex-direction: column;
+  }
+}

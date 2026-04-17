@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.icon {
+  display: flex;
+  color: var(--text-secondary);
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.trackContainer {
+  position: relative;
+  flex: 1;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.trackBackground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--glass-border);
+  border-radius: var(--radius-full);
+}
+
+.trackFill {
+  position: absolute;
+  left: 0;
+  height: 4px;
+  background: var(--accent-primary);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.input {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}

@@ -1,0 +1,45 @@
+.deviceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  min-width: 140px;
+  min-height: 120px;
+  padding: 1.25rem 1rem;
+}
+
+.icon {
+  display: flex;
+  color: var(--text-secondary);
+  transition: color var(--transition-normal);
+}
+
+.icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.iconActive {
+  color: var(--accent-primary);
+}
+
+.title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  transition: color var(--transition-normal);
+}
+
+.subtitleActive {
+  color: var(--accent-primary);
+}
