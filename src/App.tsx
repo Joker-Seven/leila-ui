@@ -9,7 +9,10 @@ import {
   Slider,
   WeatherWidget,
   TravelWidget,
-  AlarmWidget
+  AlarmWidget,
+  ClockWidget,
+  SegmentedControl,
+  EnergyWidget
 } from './components'
 import {
   Home, Shield, Bell, Map, Settings, Sun, Moon,
@@ -22,6 +25,7 @@ function App() {
   const [volume, setVolume] = useState(30)
   const [activeTab, setActiveTab] = useState('home')
   const [theme, setTheme] = useState('dark')
+  const [energyPeriod, setEnergyPeriod] = useState('day')
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
@@ -43,7 +47,7 @@ function App() {
 
       <main className="main-content">
         <header className="header">
-          <h1>01:40</h1>
+          <ClockWidget className="mb-4" />
           <div className="location-card-container">
             <WeatherWidget />
             <TravelWidget />
@@ -94,8 +98,43 @@ function App() {
           </section>
 
           <aside className="side-panels">
-            <div className="panel-section">
-              <div className="section-title">SENSORS</div>
+            <div className="panel-section flex-row-header">
+              <div className="section-title">ENERGY</div>
+              <SegmentedControl 
+                value={energyPeriod} 
+                onChange={setEnergyPeriod}
+                options={[
+                  { label: 'Day', value: 'day' },
+                  { label: 'Week', value: 'week' },
+                  { label: 'Month', value: 'month' }
+                ]}
+              />
+            </div>
+            
+            <div className="flex gap-4">
+              <EnergyWidget 
+                currentUsage={energyPeriod === 'day' ? 4.2 : energyPeriod === 'week' ? 24.5 : 120} 
+                maxUsage={energyPeriod === 'day' ? 10 : energyPeriod === 'week' ? 50 : 200}
+                unit="kW"
+                title="Power Out"
+              />
+              <div className="sensor-grid flex-1">
+                 <StatCard 
+                    icon={<Zap color="var(--warning)" />}
+                    value="220"
+                    unit="kWh"
+                    label="Gas usage"
+                  />
+                  <StatCard 
+                    icon={<Droplets />}
+                    value="£35.28"
+                    label="Water"
+                  />
+              </div>
+            </div>
+
+            <div className="panel-section mt-6">
+              <div className="section-title">SENSORS & COMFORT</div>
               <div className="sensor-grid">
                 <StatCard 
                   icon={<Thermometer />}
@@ -123,41 +162,6 @@ function App() {
                 />
               </div>
             </div>
-
-            <div className="panel-section mt-6">
-              <div className="section-title">COMFORT</div>
-              <div className="comfort-grid">
-                <StatCard 
-                  icon={<Thermometer />}
-                  value="£35.28"
-                  label="Climate mode"
-                />
-                <StatCard 
-                  icon={<Droplets />}
-                  value=""
-                  label="Hot water"
-                />
-                <StatCard 
-                  icon={<Droplets />}
-                  value="£7.97"
-                  label="Towel rails"
-                />
-                <StatCard 
-                  icon={<Zap color="var(--success)" />}
-                  value="574.7"
-                  unit="kWh"
-                  label="Power usage"
-                  large
-                />
-                <StatCard 
-                  icon={<Zap color="var(--warning)" />}
-                  value="220.2"
-                  unit="kWh"
-                  label="Gas usage"
-                  large
-                />
-              </div>
-            </div>
             
             <div className="panel-section mt-6">
               <GlassCard>
@@ -173,12 +177,6 @@ function App() {
                   iconColor="var(--accent-secondary)"
                   title="Software update available"
                   action="3h ago"
-                />
-                <ListItem
-                  icon={<CheckCircle2 />}
-                  iconColor="var(--success)"
-                  title="Weekly energy report ready"
-                  action="5h ago"
                 />
               </GlassCard>
             </div>

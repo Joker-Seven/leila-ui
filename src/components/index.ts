@@ -9,3 +9,5 @@ export * from './TravelWidget';
 export * from './AlarmWidget';
 export * from './SegmentedControl';
 export * from './EnergyWidget';
+export * from './ClockWidget';
+
